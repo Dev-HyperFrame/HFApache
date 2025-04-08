@@ -21,6 +21,37 @@
 설정 파일을 통해 유연하게 웹 서버를 구성할 수 있다. 가상 호스트(Virtual Hosts)를 설정하거나 URL 리다이렉션, 로깅, 캐싱, 압축 등의 기능을 조정할 수 있다.
 
 ## 2. 설치 및 사용 방법
+1. httpd Version 설정 및 설치 파일 다운로드
+```
+export VERSION=2.4.63
+```
+```
+$ wget https://github.com/Dev-HyperFrame/HFApache/releases/download/${VERSION}/hf-apache-${VERSION}.tar.gz
+```
+2. .bash_profile 및 .profile에서 env.sh 읽도록 설정
+```
+. ~/env.sh
+```
+3. 다운로드 한 설치 파일 압축 해제 <br>
+3-1. env.sh에서 httpd 설치 대상 디렉터리 설정
+   ```
+   export HF_HOME="/sw/web" # 설치 디렉터리에 맞게 수정
+   ```
+3-2. install.sh 스크립트 실행
+설치 결과 디렉터리
+```
+|- TestPage #Apache 설치시 생성되는 Test Page
+|- apache2.4 # Apache Home 디렉터리
+|- check-package.sh # Apache 설치 시 필요한 package check 스크립트
+|- env.sh # Apache에서 사용되는 기본 환경 변수
+|- haconfig # Apache 기본 Config, set-config.sh 기동 후 삭제 해도 됨
+|- install.sh # install 스크립트, 설치 후 삭제 해도 됨
+|- install_modules # apr, apr-util, pcre, openssl 설치 모듈 
+|- set-config.sh # 기본 설정 설정하는 스크립트, 실행 후 삭제 해도 됨
+|- source # apr, apr-util, pcre, openssl, httpd 소스 디렉터리
+```
+3-3. set-config.sh 스크립트 실행 <br>
+hfapache 기본 컨피그 설정
 
 ## 3. Apache Image Build
 
